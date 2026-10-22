@@ -18,12 +18,28 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #050914; c
 #dvr { height: 60px; background: #0a1628; border-top: 1px solid #1a2a44; display: flex; align-items: center; gap: 12px; padding: 0 18px; flex-shrink: 0; }
 #dvr label { font-size: 11px; color: #6688aa; cursor: pointer; }
 #dvr input[type="file"] { display: none; }
-#dvr .file-btn { background: #1a2a44; color: #33ccff; border: 1px solid #33ccff; padding: 6px 14px; font-family: 'Courier New', monospace; font-size: 11px; cursor: pointer; border-radius: 3px; }
-#dvr .file-btn:hover { background: #33ccff; color: #050914; }
-#dvr input[type="range"] { flex: 1; accent-color: #33ccff; height: 6px; }
-#tick-label { color: #33ccff; font-size: 13px; min-width: 100px; text-align: center; }
-#play-btn { background: none; border: 1px solid #33ccff; color: #33ccff; padding: 6px 16px; font-family: 'Courier New', monospace; font-size: 12px; cursor: pointer; border-radius: 3px; }
-#play-btn:hover { background: #33ccff; color: #050914; }
+#dvr .dvr-group { display: flex; align-items: center; gap: 6px; }
+#dvr .dvr-label { font-size: 11px; color: #6688aa; text-transform: uppercase; letter-spacing: 0.5px; font-weight: bold; }
+#dvr .dvr-select {
+  background: #1a2a44;
+  color: #33ccff;
+  border: 1px solid #33ccff;
+  padding: 6px 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+}
+#dvr .dvr-select:focus { border-color: #66ddff; box-shadow: 0 0 6px rgba(51, 204, 255, 0.4); }
+#dvr .dvr-select option { background: #0a1628; color: #ccddff; }
+#dvr .file-btn { background: #142033; color: #88aacc; border: 1px solid #2a4060; padding: 6px 12px; font-family: 'Courier New', monospace; font-size: 11px; cursor: pointer; border-radius: 3px; white-space: nowrap; transition: all 0.2s ease; }
+#dvr .file-btn:hover { background: #1a2a44; color: #33ccff; border-color: #33ccff; }
+#dvr input[type="range"] { flex: 1; accent-color: #33ccff; height: 6px; cursor: pointer; }
+#tick-label { color: #33ccff; font-size: 13px; min-width: 110px; text-align: center; }
+#play-btn { background: none; border: 1px solid #33ccff; color: #33ccff; padding: 6px 16px; font-family: 'Courier New', monospace; font-size: 12px; cursor: pointer; border-radius: 3px; white-space: nowrap; transition: all 0.2s ease; }
+#play-btn:hover:not(:disabled) { background: #33ccff; color: #050914; }
+#play-btn:disabled, #slider:disabled { opacity: 0.4; cursor: not-allowed; }
 
 /* Info panel sections */
 .section-head { color: #33ccff; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin: 14px 0 6px 0; padding-bottom: 4px; border-bottom: 1px solid #1a2a44; }
@@ -44,16 +60,33 @@ tr.row-overflow { background: #3a1010 !important; color: #ff6666; }
 .viol-line { padding: 2px 0; font-size: 10px; color: #ff4444; }
 .reroute-line { padding: 2px 0; font-size: 10px; color: #ffaa00; }
 #no-data { color: #445566; text-align: center; padding-top: 40%; font-size: 13px; }
+
+/* Error box */
+.error-box { background: #250d12; border: 1px solid #ff4444; border-radius: 4px; padding: 14px; margin: 16px 0; color: #ffb3b3; font-size: 11px; line-height: 1.5; }
+.error-box .error-title { color: #ff5555; font-weight: bold; font-size: 12px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+.error-box .error-msg { margin-bottom: 6px; }
+.error-box code { background: rgba(255, 68, 68, 0.15); color: #ff9999; padding: 2px 4px; border-radius: 3px; word-break: break-all; }
+.error-box .error-detail { color: #ff6666; font-size: 10px; margin-top: 4px; word-break: break-all; }
+.error-box .error-hint { margin-top: 10px; padding-top: 8px; border-top: 1px dashed rgba(255, 68, 68, 0.3); color: #aa8888; font-size: 10px; line-height: 1.4; }
 </style>
 </head>
 <body>
 <div id="app">
   <div id="main">
     <div id="canvas-wrap"><canvas id="c"></canvas></div>
-    <div id="info-panel"><div id="no-data">Load a ledger.json to begin</div></div>
+    <div id="info-panel"><div id="no-data">Loading simulation ledger...</div></div>
   </div>
   <div id="dvr">
-    <label class="file-btn" for="file-in">LOAD LEDGER</label>
+    <div class="dvr-group">
+      <label class="dvr-label" for="run-select">RUN:</label>
+      <select id="run-select" class="dvr-select" aria-label="Select Simulation Run">
+        <option value="out/s1_central.json" data-alt="out/S1_central/ledger.json">S1 Central</option>
+        <option value="out/s1_decentral.json" data-alt="out/S1_decentral/ledger.json">S1 Decentral</option>
+        <option value="out/s2_central.json" data-alt="out/S2_central/ledger.json" selected>S2 Central</option>
+        <option value="out/s2_decentral.json" data-alt="out/S2_decentral/ledger.json">S2 Decentral</option>
+      </select>
+    </div>
+    <label class="file-btn" for="file-in" title="Load custom ledger JSON from disk">CUSTOM FILE</label>
     <input type="file" id="file-in" accept=".json">
     <input type="range" id="slider" min="0" max="30" value="0" step="1" disabled>
     <span id="tick-label">-- / --</span>
@@ -617,6 +650,7 @@ function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>
   const tickLabel = document.getElementById('tick-label');
   const playBtn = document.getElementById('play-btn');
   const fileIn = document.getElementById('file-in');
+  const runSelect = document.getElementById('run-select');
   const infoPanel = document.getElementById('info-panel');
 
   const R = new MargSetuRenderer(canvas);
@@ -626,7 +660,9 @@ function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>
 
   function resize() {
     R.resize();
-    R.render(R.currentTick);
+    if (R.ledger) {
+      R.render(R.currentTick);
+    }
   }
   window.addEventListener('resize', resize);
 
@@ -645,7 +681,115 @@ function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>
     animFrame = requestAnimationFrame(animLoop);
   }
 
-  // File load
+  function applyLedger(data, sourceName) {
+    if (!data || !data.ticks || !Array.isArray(data.ticks) || data.ticks.length < 1) {
+      throw new Error('Missing or invalid "ticks" array in ledger data');
+    }
+    if (!data.scenario || !data.mode) {
+      throw new Error('Missing "scenario" or "mode" keys in ledger data');
+    }
+    R.ledger = data;
+    slider.max = data.ticks.length - 1;
+    slider.disabled = false;
+    playBtn.disabled = false;
+    tickLabel.style.color = '#33ccff';
+    resize();
+    updateTick(0);
+
+    if (animFrame) cancelAnimationFrame(animFrame);
+    animLoop();
+  }
+
+  function showError(triedPath, err) {
+    if (playing) {
+      clearInterval(playInterval);
+      playing = false;
+      playBtn.innerHTML = '&#9654; PLAY';
+    }
+    slider.disabled = true;
+    playBtn.disabled = true;
+    tickLabel.textContent = 'LOAD ERROR';
+    tickLabel.style.color = '#ff4444';
+
+    console.error('Ledger load error for path "' + triedPath + '":', err);
+
+    let errDetail = err && err.message ? err.message : String(err);
+    let hint = 'Please check that the file exists at this path.';
+    if (window.location.protocol === 'file:') {
+      hint = 'Browsers block local fetch() requests under file:// due to CORS policy. Please serve this folder via an HTTP server (e.g. <code>python -m http.server</code>) or use the <strong>CUSTOM FILE</strong> button to load a JSON file directly.';
+    }
+
+    infoPanel.innerHTML =
+      '<div class="error-box">' +
+        '<div class="error-title">&#9888; Failed to Load Ledger</div>' +
+        '<div class="error-msg">Target path: <code>' + esc(triedPath) + '</code></div>' +
+        '<div class="error-detail">' + esc(errDetail) + '</div>' +
+        '<div class="error-hint">' + hint + '</div>' +
+      '</div>';
+  }
+
+  async function loadLedgerFromPath(path, altPath) {
+    if (playing) {
+      clearInterval(playInterval);
+      playing = false;
+      playBtn.innerHTML = '&#9654; PLAY';
+    }
+
+    slider.disabled = true;
+    playBtn.disabled = true;
+    tickLabel.textContent = 'LOADING...';
+    tickLabel.style.color = '#6688aa';
+    infoPanel.innerHTML = '<div style="color:#6688aa;text-align:center;padding-top:35%;font-size:12px;">Fetching <code>' + esc(path) + '</code>...</div>';
+
+    let tried = [path];
+    let lastErr = null;
+
+    async function doFetch(p) {
+      const res = await fetch(p);
+      if (!res.ok) {
+        throw new Error('HTTP ' + res.status + ' ' + res.statusText);
+      }
+      return await res.json();
+    }
+
+    let data = null;
+    try {
+      data = await doFetch(path);
+    } catch (e1) {
+      lastErr = e1;
+      if (altPath && altPath !== path) {
+        tried.push(altPath);
+        try {
+          data = await doFetch(altPath);
+          lastErr = null;
+        } catch (e2) {
+          lastErr = e2;
+        }
+      }
+    }
+
+    if (!data) {
+      showError(tried.join("' or '"), lastErr);
+      return;
+    }
+
+    try {
+      applyLedger(data, path);
+    } catch (parseErr) {
+      showError(path, parseErr);
+    }
+  }
+
+  // Dropdown switch
+  runSelect.addEventListener('change', function() {
+    if (this.value === 'custom') return;
+    const opt = this.options[this.selectedIndex];
+    const path = opt.value;
+    const alt = opt.getAttribute('data-alt');
+    loadLedgerFromPath(path, alt);
+  });
+
+  // Manual file upload
   fileIn.addEventListener('change', function(e) {
     const file = e.target.files[0];
     if (!file) return;
@@ -653,33 +797,30 @@ function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>
     reader.onload = function(ev) {
       try {
         const data = JSON.parse(ev.target.result);
-        if (!data.ticks || !Array.isArray(data.ticks) || data.ticks.length < 1) {
-          alert('Invalid ledger.json: missing ticks array');
-          return;
+        applyLedger(data, file.name);
+
+        let customOpt = document.getElementById('opt-custom');
+        if (!customOpt) {
+          customOpt = document.createElement('option');
+          customOpt.id = 'opt-custom';
+          customOpt.value = 'custom';
+          runSelect.appendChild(customOpt);
         }
-        if (!data.scenario || !data.mode) {
-          alert('Invalid ledger.json: missing scenario or mode keys');
-          return;
-        }
-        R.ledger = data;
-        slider.max = data.ticks.length - 1;
-        slider.disabled = false;
-        playBtn.disabled = false;
-        resize();
-        updateTick(0);
-        // Start animation loop for pulses
-        if (animFrame) cancelAnimationFrame(animFrame);
-        animLoop();
+        customOpt.textContent = 'Custom: ' + file.name;
+        customOpt.selected = true;
       } catch (err) {
-        alert('Failed to parse JSON: ' + err.message);
+        showError(file.name, err);
       }
+    };
+    reader.onerror = function(err) {
+      showError(file.name, new Error('Could not read file'));
     };
     reader.readAsText(file);
   });
 
-  // Slider
+  // Slider scrub
   slider.addEventListener('input', function() {
-    updateTick(parseInt(this.value));
+    updateTick(parseInt(this.value, 10));
   });
 
   // Play / pause
@@ -689,14 +830,14 @@ function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>
       playing = false;
       playBtn.innerHTML = '&#9654; PLAY';
     } else {
-      if (R.currentTick >= parseInt(slider.max)) {
+      if (R.currentTick >= parseInt(slider.max, 10)) {
         updateTick(0);
       }
       playing = true;
       playBtn.innerHTML = '&#9646;&#9646; PAUSE';
       playInterval = setInterval(function() {
         let next = R.currentTick + 1;
-        if (next > parseInt(slider.max)) {
+        if (next > parseInt(slider.max, 10)) {
           clearInterval(playInterval);
           playing = false;
           playBtn.innerHTML = '&#9654; PLAY';
@@ -709,6 +850,29 @@ function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>
 
   // Initial resize
   resize();
+
+  // URL query param support: ?run=s1_central or ?file=out/s2_central.json
+  const params = new URLSearchParams(window.location.search);
+  const qRun = (params.get('run') || '').toLowerCase();
+  const qFile = params.get('file');
+
+  if (qFile) {
+    loadLedgerFromPath(qFile, null);
+  } else {
+    if (qRun) {
+      for (let i = 0; i < runSelect.options.length; i++) {
+        const opt = runSelect.options[i];
+        if (opt.value.toLowerCase().includes(qRun) || opt.textContent.toLowerCase().includes(qRun)) {
+          runSelect.selectedIndex = i;
+          break;
+        }
+      }
+    }
+    const selOpt = runSelect.options[runSelect.selectedIndex];
+    if (selOpt) {
+      loadLedgerFromPath(selOpt.value, selOpt.getAttribute('data-alt'));
+    }
+  }
 })();
 </script>
 </body>
