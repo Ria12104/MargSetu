@@ -1,0 +1,149 @@
+{
+  "name": "S2",
+  "agents": [
+    {
+      "name": "LAND-1",
+      "kind": "land",
+      "capacity": 10,
+      "speed": 1,
+      "start_node": "DOME"
+    },
+    {
+      "name": "LAND-2",
+      "kind": "land",
+      "capacity": 10,
+      "speed": 1,
+      "start_node": "GHS_HOSTEL"
+    },
+    {
+      "name": "LAND-3",
+      "kind": "land",
+      "capacity": 10,
+      "speed": 1,
+      "start_node": "PARKING_1"
+    },
+    {
+      "name": "BOAT-1",
+      "kind": "boat",
+      "capacity": 8,
+      "speed": 2,
+      "start_node": "FLOOD_POND"
+    },
+    {
+      "name": "BOAT-2",
+      "kind": "boat",
+      "capacity": 8,
+      "speed": 2,
+      "start_node": "FLOOD_POND"
+    }
+  ],
+  "incidents": [
+    {
+      "id": "I1",
+      "node": "GARDEN",
+      "victims": 6,
+      "urgency": 3,
+      "zone": "Campus"
+    },
+    {
+      "id": "I2",
+      "node": "FOOTBALL",
+      "victims": 10,
+      "urgency": 3,
+      "zone": "Sports"
+    },
+    {
+      "id": "I3",
+      "node": "VIP_ENTRY",
+      "victims": 9,
+      "urgency": 3,
+      "zone": "Admin"
+    },
+    {
+      "id": "I4",
+      "node": "CIVIL_WS",
+      "victims": 7,
+      "urgency": 2,
+      "zone": "Campus"
+    },
+    {
+      "id": "I5",
+      "node": "CRICKET",
+      "victims": 4,
+      "urgency": 1,
+      "zone": "Sports"
+    }
+  ],
+  "overlays": {
+    "GARDEN|GHS_HOSTEL": {
+      "is_water": true
+    }
+  },
+  "shelters": ["DOME", "KNOWLEDGE_CENTRE", "GHS_HOSTEL"],
+  "events": [
+    {
+      "tick": 5,
+      "kind": "REPORT",
+      "edge": "AB1|PARKING_1",
+      "source": "VOLUNTEER",
+      "state": "BLOCKED",
+      "conf0": 0.4
+    },
+    {
+      "tick": 7,
+      "kind": "REPORT",
+      "edge": "AB1|PARKING_1",
+      "source": "DRONE",
+      "state": "CLEAR",
+      "conf0": 0.9
+    },
+    {
+      "tick": 15,
+      "kind": "TRUTH_EDGE_CLOSE",
+      "edge": "AB1|DOME"
+    },
+    {
+      "tick": 15,
+      "kind": "TRUTH_AGENT_FAIL",
+      "agent_name": "BOAT-1"
+    },
+    {
+      "tick": 15,
+      "kind": "TRUTH_SHELTER_SET",
+      "shelter_name": "DOME",
+      "shelter_field": "occupied",
+      "shelter_value": 300
+    },
+    {
+      "tick": 15,
+      "kind": "REPORT",
+      "source": "COMMAND",
+      "message": "BOAT-1 failed",
+      "conf0": 1.0
+    },
+    {
+      "tick": 17,
+      "kind": "REPORT",
+      "edge": "AB1|DOME",
+      "source": "DRONE",
+      "state": "BLOCKED",
+      "conf0": 0.9
+    },
+    {
+      "tick": 9,
+      "kind": "REPORT",
+      "edge": "DOME|KNOWLEDGE_CENTRE",
+      "source": "VOLUNTEER",
+      "state": "BLOCKED",
+      "conf0": 0.4
+    },
+    {
+      "tick": 11,
+      "kind": "REPORT",
+      "edge": "DOME|KNOWLEDGE_CENTRE",
+      "source": "DRONE",
+      "state": "CLEAR",
+      "conf0": 0.9
+    }
+  ]
+}

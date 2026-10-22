@@ -1,0 +1,163 @@
+[
+  {
+    "u": "GHS_HOSTEL",
+    "v": "PARKING_1",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "PARKING_1",
+    "v": "AB1",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "PARKING_1",
+    "v": "AB3",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "AB3",
+    "v": "LHC",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "LHC",
+    "v": "CRICKET",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "LHC",
+    "v": "FOOTBALL",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "CRICKET",
+    "v": "BASKETBALL",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "BASKETBALL",
+    "v": "CIVIL_WS",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "CIVIL_WS",
+    "v": "AB2",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "AB2",
+    "v": "KNOWLEDGE_CENTRE",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "KNOWLEDGE_CENTRE",
+    "v": "OLD_MESS",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "OLD_MESS",
+    "v": "FOOTBALL",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "OLD_MESS",
+    "v": "LHC",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "OLD_MESS",
+    "v": "AB1",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "AB1",
+    "v": "DOME",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "KNOWLEDGE_CENTRE",
+    "v": "DOME",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "DOME",
+    "v": "VIP_ENTRY",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "PARKING_2",
+    "v": "GARDEN",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "GARDEN",
+    "v": "GHS_HOSTEL",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "PARKING_2",
+    "v": "DOME",
+    "is_road": true,
+    "is_water": true,
+    "length": 3
+  },
+  {
+    "u": "GHS_HOSTEL",
+    "v": "FLOOD_POND",
+    "is_road": false,
+    "is_water": true,
+    "length": 2
+  },
+  {
+    "u": "GARDEN",
+    "v": "FLOOD_POND",
+    "is_road": false,
+    "is_water": true,
+    "length": 2
+  },
+  {
+    "u": "PARKING_2",
+    "v": "FLOOD_POND",
+    "is_road": false,
+    "is_water": true,
+    "length": 2
+  }
+]

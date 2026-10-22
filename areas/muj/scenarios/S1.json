@@ -1,0 +1,122 @@
+{
+  "name": "S1",
+  "agents": [
+    {
+      "name": "LAND-1",
+      "kind": "land",
+      "capacity": 10,
+      "speed": 1,
+      "start_node": "DOME"
+    },
+    {
+      "name": "LAND-2",
+      "kind": "land",
+      "capacity": 10,
+      "speed": 1,
+      "start_node": "GHS_HOSTEL"
+    },
+    {
+      "name": "LAND-3",
+      "kind": "land",
+      "capacity": 10,
+      "speed": 1,
+      "start_node": "PARKING_1"
+    },
+    {
+      "name": "BOAT-1",
+      "kind": "boat",
+      "capacity": 8,
+      "speed": 2,
+      "start_node": "FLOOD_POND"
+    },
+    {
+      "name": "BOAT-2",
+      "kind": "boat",
+      "capacity": 8,
+      "speed": 2,
+      "start_node": "FLOOD_POND"
+    }
+  ],
+  "incidents": [
+    {
+      "id": "I1",
+      "node": "GARDEN",
+      "victims": 12,
+      "urgency": 3,
+      "zone": "Campus"
+    },
+    {
+      "id": "I2",
+      "node": "PARKING_2",
+      "victims": 6,
+      "urgency": 2,
+      "zone": "Campus"
+    },
+    {
+      "id": "I3",
+      "node": "BASKETBALL",
+      "victims": 8,
+      "urgency": 1,
+      "zone": "Sports"
+    },
+    {
+      "id": "I4",
+      "node": "AB3",
+      "victims": 5,
+      "urgency": 2,
+      "zone": "Academic"
+    }
+  ],
+  "overlays": {},
+  "shelters": ["DOME", "KNOWLEDGE_CENTRE", "GHS_HOSTEL"],
+  "events": [
+    {
+      "tick": 5,
+      "kind": "REPORT",
+      "edge": "AB1|PARKING_1",
+      "source": "VOLUNTEER",
+      "state": "BLOCKED",
+      "conf0": 0.4
+    },
+    {
+      "tick": 7,
+      "kind": "REPORT",
+      "edge": "AB1|PARKING_1",
+      "source": "DRONE",
+      "state": "CLEAR",
+      "conf0": 0.9
+    },
+    {
+      "tick": 15,
+      "kind": "TRUTH_EDGE_CLOSE",
+      "edge": "AB1|DOME"
+    },
+    {
+      "tick": 15,
+      "kind": "TRUTH_AGENT_FAIL",
+      "agent_name": "BOAT-1"
+    },
+    {
+      "tick": 15,
+      "kind": "TRUTH_SHELTER_SET",
+      "shelter_name": "DOME",
+      "shelter_field": "occupied",
+      "shelter_value": 300
+    },
+    {
+      "tick": 15,
+      "kind": "REPORT",
+      "source": "COMMAND",
+      "message": "BOAT-1 failed",
+      "conf0": 1.0
+    },
+    {
+      "tick": 17,
+      "kind": "REPORT",
+      "edge": "AB1|DOME",
+      "source": "DRONE",
+      "state": "BLOCKED",
+      "conf0": 0.9
+    }
+  ]
+}

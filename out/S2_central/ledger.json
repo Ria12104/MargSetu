@@ -1,0 +1,6652 @@
+{
+  "scenario": "S2",
+  "mode": "central",
+  "ticks": [
+    {
+      "tick": 0,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "DOME",
+          "next_node": "KNOWLEDGE_CENTRE",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0002",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "GHS_HOSTEL",
+          "next_node": "PARKING_1",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0003",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "PARKING_1",
+          "next_node": "AB1",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0004",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "FLOOD_POND",
+          "next_node": "GARDEN",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0001",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 6,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 6,
+          "delivered": 0
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 10,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 9,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 9,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 7,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 7,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 0,
+          "reserved": 32,
+          "remaining": 268
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 150
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [
+        {
+          "commitment": "C-0001",
+          "from": "PROPOSED",
+          "to": "COMMITTED",
+          "reason": "CONFIRM_RESERVATION at DOME."
+        },
+        {
+          "commitment": "C-0002",
+          "from": "PROPOSED",
+          "to": "COMMITTED",
+          "reason": "CONFIRM_RESERVATION at DOME."
+        },
+        {
+          "commitment": "C-0003",
+          "from": "PROPOSED",
+          "to": "COMMITTED",
+          "reason": "CONFIRM_RESERVATION at DOME."
+        },
+        {
+          "commitment": "C-0004",
+          "from": "PROPOSED",
+          "to": "COMMITTED",
+          "reason": "CONFIRM_RESERVATION at DOME."
+        }
+      ],
+      "violations": []
+    },
+    {
+      "tick": 1,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "DOME",
+          "next_node": "KNOWLEDGE_CENTRE",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0002",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "GHS_HOSTEL",
+          "next_node": "PARKING_1",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0003",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "PARKING_1",
+          "next_node": "AB1",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0004",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "GARDEN",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0001",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 6,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 6,
+          "delivered": 0
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 10,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 9,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 9,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 7,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 7,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 0,
+          "reserved": 32,
+          "remaining": 268
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 150
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 2,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "DOME",
+          "next_node": "KNOWLEDGE_CENTRE",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0002",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "GHS_HOSTEL",
+          "next_node": "PARKING_1",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0003",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "PARKING_1",
+          "next_node": "AB1",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0004",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "GARDEN",
+          "next_node": null,
+          "status": "LOADING",
+          "victims": 0,
+          "commitment": "C-0001",
+          "edge_left": 0,
+          "busy_left": 1
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 6,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 6,
+          "delivered": 0
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 10,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 9,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 9,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 7,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 7,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 0,
+          "reserved": 32,
+          "remaining": 268
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 150
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 3,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0002",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "PARKING_1",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0003",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "AB1",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0004",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "GARDEN",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 6,
+          "commitment": "C-0001",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 10,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 9,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 9,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 7,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 7,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 0,
+          "reserved": 32,
+          "remaining": 268
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 150
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 4,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": "AB2",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0002",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "PARKING_1",
+          "next_node": "AB1",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0003",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "AB1",
+          "next_node": "DOME",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0004",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "GARDEN",
+          "next_node": "FLOOD_POND",
+          "status": "MOVING",
+          "victims": 6,
+          "commitment": "C-0001",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 10,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 9,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 9,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 7,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 7,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 0,
+          "reserved": 32,
+          "remaining": 268
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 150
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 5,
+      "events": [
+        "REPORT VOLUNTEER AB1|PARKING_1 BLOCKED"
+      ],
+      "agents": {
+        "LAND-1": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": "AB2",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0002",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "PARKING_1",
+          "next_node": "AB1",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0003",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "AB1",
+          "next_node": "DOME",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0004",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 6,
+          "commitment": "C-0001",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 10,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 9,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 9,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 7,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 7,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 0,
+          "reserved": 32,
+          "remaining": 268
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 150
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": true
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 6,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": "AB2",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0002",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "PARKING_1",
+          "next_node": "AB1",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0003",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "AB1",
+          "next_node": "DOME",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0004",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "FLOOD_POND",
+          "next_node": "PARKING_2",
+          "status": "MOVING",
+          "victims": 6,
+          "commitment": "C-0001",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 10,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 9,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 9,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 7,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 7,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 0,
+          "reserved": 32,
+          "remaining": 268
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 150
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": true
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 7,
+      "events": [
+        "REPORT DRONE AB1|PARKING_1 CLEAR"
+      ],
+      "agents": {
+        "LAND-1": {
+          "node": "AB2",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0002",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "AB1",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0003",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0004",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "PARKING_2",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 6,
+          "commitment": "C-0001",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 10,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 9,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 9,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 7,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 7,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 0,
+          "reserved": 32,
+          "remaining": 268
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 150
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 8,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "AB2",
+          "next_node": "CIVIL_WS",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0002",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "AB1",
+          "next_node": "OLD_MESS",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0003",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "DOME",
+          "next_node": "VIP_ENTRY",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0004",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "PARKING_2",
+          "next_node": "DOME",
+          "status": "MOVING",
+          "victims": 6,
+          "commitment": "C-0001",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 10,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 9,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 9,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 7,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 7,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 0,
+          "reserved": 32,
+          "remaining": 268
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 150
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 9,
+      "events": [
+        "REPORT VOLUNTEER DOME|KNOWLEDGE_CENTRE BLOCKED"
+      ],
+      "agents": {
+        "LAND-1": {
+          "node": "AB2",
+          "next_node": "CIVIL_WS",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0002",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "AB1",
+          "next_node": "OLD_MESS",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0003",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "DOME",
+          "next_node": "VIP_ENTRY",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0004",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "PARKING_2",
+          "next_node": "DOME",
+          "status": "MOVING",
+          "victims": 6,
+          "commitment": "C-0001",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 10,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 9,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 9,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 7,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 7,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 0,
+          "reserved": 32,
+          "remaining": 268
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 150
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": true
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 10,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "AB2",
+          "next_node": "CIVIL_WS",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0002",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "AB1",
+          "next_node": "OLD_MESS",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0003",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "DOME",
+          "next_node": "VIP_ENTRY",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0004",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 6,
+          "commitment": "C-0001",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 10,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 9,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 9,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 7,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 7,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 0,
+          "reserved": 32,
+          "remaining": 268
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 150
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": true
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 11,
+      "events": [
+        "REPORT DRONE DOME|KNOWLEDGE_CENTRE CLEAR"
+      ],
+      "agents": {
+        "LAND-1": {
+          "node": "CIVIL_WS",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0002",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "OLD_MESS",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0003",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "VIP_ENTRY",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0004",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "UNLOADING",
+          "victims": 6,
+          "commitment": "C-0001",
+          "edge_left": 0,
+          "busy_left": 1
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 10,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 9,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 9,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 7,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 7,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 0,
+          "reserved": 32,
+          "remaining": 268
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 150
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 12,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "CIVIL_WS",
+          "next_node": null,
+          "status": "LOADING",
+          "victims": 0,
+          "commitment": "C-0002",
+          "edge_left": 0,
+          "busy_left": 1
+        },
+        "LAND-2": {
+          "node": "OLD_MESS",
+          "next_node": "FOOTBALL",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0003",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "VIP_ENTRY",
+          "next_node": null,
+          "status": "LOADING",
+          "victims": 0,
+          "commitment": "C-0004",
+          "edge_left": 0,
+          "busy_left": 1
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 10,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 9,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 9,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 7,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 7,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 6,
+          "reserved": 26,
+          "remaining": 268
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 150
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [
+        {
+          "commitment": "C-0001",
+          "from": "COMMITTED",
+          "to": "COMPLETED",
+          "reason": "Delivered 6 to DOME."
+        }
+      ],
+      "violations": []
+    },
+    {
+      "tick": 13,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "CIVIL_WS",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 7,
+          "commitment": "C-0002",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "OLD_MESS",
+          "next_node": "FOOTBALL",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0003",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "VIP_ENTRY",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 9,
+          "commitment": "C-0004",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 10,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 6,
+          "reserved": 26,
+          "remaining": 268
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 150
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 14,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "CIVIL_WS",
+          "next_node": "AB2",
+          "status": "MOVING",
+          "victims": 7,
+          "commitment": "C-0002",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "OLD_MESS",
+          "next_node": "FOOTBALL",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0003",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "VIP_ENTRY",
+          "next_node": "DOME",
+          "status": "MOVING",
+          "victims": 9,
+          "commitment": "C-0004",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 10,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 6,
+          "reserved": 26,
+          "remaining": 268
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 150
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 15,
+      "events": [
+        "TRUTH_EDGE_CLOSE AB1|DOME",
+        "TRUTH_AGENT_FAIL BOAT-1",
+        "TRUTH_SHELTER_SET DOME.occupied=300",
+        "REPORT COMMAND \"BOAT-1 failed\""
+      ],
+      "agents": {
+        "LAND-1": {
+          "node": "CIVIL_WS",
+          "next_node": "AB2",
+          "status": "MOVING",
+          "victims": 7,
+          "commitment": "C-0005",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "FOOTBALL",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "VIP_ENTRY",
+          "next_node": "DOME",
+          "status": "MOVING",
+          "victims": 9,
+          "commitment": "C-0006",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "FAILED",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 300,
+          "reserved": 0,
+          "remaining": 0
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 16,
+          "remaining": 134
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": true,
+          "belief_closed": false
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [
+        {
+          "commitment": "C-0002",
+          "from": "COMPLETED",
+          "to": "CANCELLED",
+          "reason": "Destination reached max capacity. Contract revoked."
+        },
+        {
+          "commitment": "C-0003",
+          "from": "COMPLETED",
+          "to": "CANCELLED",
+          "reason": "Destination reached max capacity. Contract revoked."
+        },
+        {
+          "commitment": "C-0004",
+          "from": "COMPLETED",
+          "to": "CANCELLED",
+          "reason": "Destination reached max capacity. Contract revoked."
+        },
+        {
+          "commitment": "C-0005",
+          "from": "PROPOSED",
+          "to": "COMMITTED",
+          "reason": "CONFIRM_RESERVATION at KNOWLEDGE_CENTRE."
+        },
+        {
+          "commitment": "C-0006",
+          "from": "PROPOSED",
+          "to": "COMMITTED",
+          "reason": "CONFIRM_RESERVATION at KNOWLEDGE_CENTRE."
+        }
+      ],
+      "violations": []
+    },
+    {
+      "tick": 16,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "CIVIL_WS",
+          "next_node": "AB2",
+          "status": "MOVING",
+          "victims": 7,
+          "commitment": "C-0005",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "FOOTBALL",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "VIP_ENTRY",
+          "next_node": "DOME",
+          "status": "MOVING",
+          "victims": 9,
+          "commitment": "C-0006",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "FAILED",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 300,
+          "reserved": 0,
+          "remaining": 0
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 16,
+          "remaining": 134
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": true,
+          "belief_closed": false
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 17,
+      "events": [
+        "REPORT DRONE AB1|DOME BLOCKED"
+      ],
+      "agents": {
+        "LAND-1": {
+          "node": "AB2",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 7,
+          "commitment": "C-0005",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "FOOTBALL",
+          "next_node": null,
+          "status": "LOADING",
+          "victims": 0,
+          "commitment": "C-0007",
+          "edge_left": 0,
+          "busy_left": 1
+        },
+        "LAND-3": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 9,
+          "commitment": "C-0006",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "FAILED",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 10,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 10,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 300,
+          "reserved": 0,
+          "remaining": 0
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 26,
+          "remaining": 124
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": true,
+          "belief_closed": true
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [
+        {
+          "commitment": "C-0007",
+          "from": "PROPOSED",
+          "to": "COMMITTED",
+          "reason": "CONFIRM_RESERVATION at KNOWLEDGE_CENTRE."
+        }
+      ],
+      "violations": []
+    },
+    {
+      "tick": 18,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "AB2",
+          "next_node": "KNOWLEDGE_CENTRE",
+          "status": "MOVING",
+          "victims": 7,
+          "commitment": "C-0005",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "FOOTBALL",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 10,
+          "commitment": "C-0007",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "DOME",
+          "next_node": "KNOWLEDGE_CENTRE",
+          "status": "MOVING",
+          "victims": 9,
+          "commitment": "C-0006",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "FAILED",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 300,
+          "reserved": 0,
+          "remaining": 0
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 26,
+          "remaining": 124
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": true,
+          "belief_closed": true
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 19,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "AB2",
+          "next_node": "KNOWLEDGE_CENTRE",
+          "status": "MOVING",
+          "victims": 7,
+          "commitment": "C-0005",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "FOOTBALL",
+          "next_node": "OLD_MESS",
+          "status": "MOVING",
+          "victims": 10,
+          "commitment": "C-0007",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "DOME",
+          "next_node": "KNOWLEDGE_CENTRE",
+          "status": "MOVING",
+          "victims": 9,
+          "commitment": "C-0006",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "FAILED",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 300,
+          "reserved": 0,
+          "remaining": 0
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 26,
+          "remaining": 124
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": true,
+          "belief_closed": true
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 20,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "AB2",
+          "next_node": "KNOWLEDGE_CENTRE",
+          "status": "MOVING",
+          "victims": 7,
+          "commitment": "C-0005",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "FOOTBALL",
+          "next_node": "OLD_MESS",
+          "status": "MOVING",
+          "victims": 10,
+          "commitment": "C-0007",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "DOME",
+          "next_node": "KNOWLEDGE_CENTRE",
+          "status": "MOVING",
+          "victims": 9,
+          "commitment": "C-0006",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "FAILED",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 300,
+          "reserved": 0,
+          "remaining": 0
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 26,
+          "remaining": 124
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": true,
+          "belief_closed": true
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 21,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 7,
+          "commitment": "C-0005",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "FOOTBALL",
+          "next_node": "OLD_MESS",
+          "status": "MOVING",
+          "victims": 10,
+          "commitment": "C-0007",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 9,
+          "commitment": "C-0006",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "FAILED",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 300,
+          "reserved": 0,
+          "remaining": 0
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 26,
+          "remaining": 124
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": true,
+          "belief_closed": true
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 22,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "UNLOADING",
+          "victims": 7,
+          "commitment": "C-0005",
+          "edge_left": 0,
+          "busy_left": 1
+        },
+        "LAND-2": {
+          "node": "OLD_MESS",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 10,
+          "commitment": "C-0007",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "UNLOADING",
+          "victims": 9,
+          "commitment": "C-0006",
+          "edge_left": 0,
+          "busy_left": 1
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "FAILED",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 300,
+          "reserved": 0,
+          "remaining": 0
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 0,
+          "reserved": 26,
+          "remaining": 124
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": true,
+          "belief_closed": true
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 23,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "OLD_MESS",
+          "next_node": "KNOWLEDGE_CENTRE",
+          "status": "MOVING",
+          "victims": 10,
+          "commitment": "C-0007",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "FAILED",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 9
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 7
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 300,
+          "reserved": 0,
+          "remaining": 0
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 16,
+          "reserved": 10,
+          "remaining": 124
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": true,
+          "belief_closed": true
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [
+        {
+          "commitment": "C-0005",
+          "from": "COMMITTED",
+          "to": "COMPLETED",
+          "reason": "Delivered 7 to KNOWLEDGE_CENTRE."
+        },
+        {
+          "commitment": "C-0006",
+          "from": "COMMITTED",
+          "to": "COMPLETED",
+          "reason": "Delivered 9 to KNOWLEDGE_CENTRE."
+        }
+      ],
+      "violations": []
+    },
+    {
+      "tick": 24,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": "OLD_MESS",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0008",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "OLD_MESS",
+          "next_node": "KNOWLEDGE_CENTRE",
+          "status": "MOVING",
+          "victims": 10,
+          "commitment": "C-0007",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "FAILED",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 9
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 7
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 4,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 300,
+          "reserved": 0,
+          "remaining": 0
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 16,
+          "reserved": 14,
+          "remaining": 120
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": true,
+          "belief_closed": true
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [
+        {
+          "commitment": "C-0008",
+          "from": "PROPOSED",
+          "to": "COMMITTED",
+          "reason": "CONFIRM_RESERVATION at KNOWLEDGE_CENTRE."
+        }
+      ],
+      "violations": []
+    },
+    {
+      "tick": 25,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": "OLD_MESS",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0008",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "OLD_MESS",
+          "next_node": "KNOWLEDGE_CENTRE",
+          "status": "MOVING",
+          "victims": 10,
+          "commitment": "C-0007",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "FAILED",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 9
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 7
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 4,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 300,
+          "reserved": 0,
+          "remaining": 0
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 16,
+          "reserved": 14,
+          "remaining": 120
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": true,
+          "belief_closed": true
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 26,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": "OLD_MESS",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0008",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 10,
+          "commitment": "C-0007",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "FAILED",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 9
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 7
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 4,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 300,
+          "reserved": 0,
+          "remaining": 0
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 16,
+          "reserved": 14,
+          "remaining": 120
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": true,
+          "belief_closed": true
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 27,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "OLD_MESS",
+          "next_node": null,
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0008",
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "UNLOADING",
+          "victims": 10,
+          "commitment": "C-0007",
+          "edge_left": 0,
+          "busy_left": 1
+        },
+        "LAND-3": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "FAILED",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 0
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 9
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 7
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 4,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 300,
+          "reserved": 0,
+          "remaining": 0
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 16,
+          "reserved": 14,
+          "remaining": 120
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": true,
+          "belief_closed": true
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 28,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "OLD_MESS",
+          "next_node": "LHC",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0008",
+          "edge_left": 3,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "FAILED",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 10
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 9
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 7
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 4,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 300,
+          "reserved": 0,
+          "remaining": 0
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 26,
+          "reserved": 4,
+          "remaining": 120
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": true,
+          "belief_closed": true
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [
+        {
+          "commitment": "C-0007",
+          "from": "COMMITTED",
+          "to": "COMPLETED",
+          "reason": "Delivered 10 to KNOWLEDGE_CENTRE."
+        }
+      ],
+      "violations": []
+    },
+    {
+      "tick": 29,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "OLD_MESS",
+          "next_node": "LHC",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0008",
+          "edge_left": 2,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "FAILED",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 10
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 9
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 7
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 4,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 300,
+          "reserved": 0,
+          "remaining": 0
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 26,
+          "reserved": 4,
+          "remaining": 120
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": true,
+          "belief_closed": true
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    },
+    {
+      "tick": 30,
+      "events": [],
+      "agents": {
+        "LAND-1": {
+          "node": "OLD_MESS",
+          "next_node": "LHC",
+          "status": "MOVING",
+          "victims": 0,
+          "commitment": "C-0008",
+          "edge_left": 1,
+          "busy_left": 0
+        },
+        "LAND-2": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "LAND-3": {
+          "node": "KNOWLEDGE_CENTRE",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-1": {
+          "node": "DOME",
+          "next_node": null,
+          "status": "FAILED",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        },
+        "BOAT-2": {
+          "node": "FLOOD_POND",
+          "next_node": null,
+          "status": "IDLE",
+          "victims": 0,
+          "commitment": null,
+          "edge_left": 0,
+          "busy_left": 0
+        }
+      },
+      "incidents": {
+        "I1": {
+          "node": "GARDEN",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 6
+        },
+        "I2": {
+          "node": "FOOTBALL",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Sports",
+          "claimed": 0,
+          "delivered": 10
+        },
+        "I3": {
+          "node": "VIP_ENTRY",
+          "remaining": 0,
+          "urgency": 3,
+          "origin_zone": "Admin",
+          "claimed": 0,
+          "delivered": 9
+        },
+        "I4": {
+          "node": "CIVIL_WS",
+          "remaining": 0,
+          "urgency": 2,
+          "origin_zone": "Campus",
+          "claimed": 0,
+          "delivered": 7
+        },
+        "I5": {
+          "node": "CRICKET",
+          "remaining": 4,
+          "urgency": 1,
+          "origin_zone": "Sports",
+          "claimed": 4,
+          "delivered": 0
+        }
+      },
+      "shelters": {
+        "DOME": {
+          "max": 300,
+          "occupied": 300,
+          "reserved": 0,
+          "remaining": 0
+        },
+        "KNOWLEDGE_CENTRE": {
+          "max": 150,
+          "occupied": 26,
+          "reserved": 4,
+          "remaining": 120
+        },
+        "GHS_HOSTEL": {
+          "max": 120,
+          "occupied": 0,
+          "reserved": 0,
+          "remaining": 120
+        }
+      },
+      "edges": {
+        "AB1|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB1|DOME": {
+          "truth_closed": true,
+          "belief_closed": true
+        },
+        "AB2|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB2|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "AB3|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "CRICKET|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|LHC": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "LHC|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "KNOWLEDGE_CENTRE|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|KNOWLEDGE_CENTRE": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|VIP_ENTRY": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "DOME|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FOOTBALL|OLD_MESS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GHS_HOSTEL|PARKING_1": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|PARKING_2": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CIVIL_WS": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "GARDEN|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GARDEN": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "BASKETBALL|CRICKET": {
+          "truth_closed": false,
+          "belief_closed": false
+        },
+        "FLOOD_POND|GHS_HOSTEL": {
+          "truth_closed": false,
+          "belief_closed": false
+        }
+      },
+      "transitions": [],
+      "violations": []
+    }
+  ],
+  "reroute_explanations": [
+    {
+      "tick": 15,
+      "mode": "central",
+      "commitment": "C-0002",
+      "agent": "LAND-1",
+      "incident": "I4",
+      "shelter": "DOME",
+      "action": "CANCELLED",
+      "reason": "Destination reached max capacity. Contract revoked.",
+      "reassigned_to": "C-0005",
+      "new_agent": "LAND-1",
+      "new_shelter": "KNOWLEDGE_CENTRE"
+    },
+    {
+      "tick": 15,
+      "mode": "central",
+      "commitment": "C-0003",
+      "agent": "LAND-2",
+      "incident": "I2",
+      "shelter": "DOME",
+      "action": "CANCELLED",
+      "reason": "Destination reached max capacity. Contract revoked.",
+      "reassigned_to": null,
+      "new_agent": null,
+      "new_shelter": null
+    },
+    {
+      "tick": 15,
+      "mode": "central",
+      "commitment": "C-0004",
+      "agent": "LAND-3",
+      "incident": "I3",
+      "shelter": "DOME",
+      "action": "CANCELLED",
+      "reason": "Destination reached max capacity. Contract revoked.",
+      "reassigned_to": "C-0006",
+      "new_agent": "LAND-3",
+      "new_shelter": "KNOWLEDGE_CENTRE"
+    }
+  ],
+  "false_reports": [
+    {
+      "tick": 5,
+      "edge": "AB1|PARKING_1",
+      "corrected_tick": 7,
+      "recovery_ticks": 2
+    },
+    {
+      "tick": 9,
+      "edge": "DOME|KNOWLEDGE_CENTRE",
+      "corrected_tick": 11,
+      "recovery_ticks": 2
+    }
+  ]
+}

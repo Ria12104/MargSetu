@@ -1,0 +1,51 @@
+[
+  {
+    "u": "N1",
+    "v": "N2",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "N1",
+    "v": "N3",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "N2",
+    "v": "N4",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "N3",
+    "v": "N4",
+    "is_road": true,
+    "is_water": true,
+    "length": 3
+  },
+  {
+    "u": "N4",
+    "v": "N5",
+    "is_road": true,
+    "is_water": false,
+    "length": 3
+  },
+  {
+    "u": "WATER_BASIN",
+    "v": "N3",
+    "is_road": false,
+    "is_water": true,
+    "length": 2
+  },
+  {
+    "u": "WATER_BASIN",
+    "v": "N4",
+    "is_road": false,
+    "is_water": true,
+    "length": 2
+  }
+]

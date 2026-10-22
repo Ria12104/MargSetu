@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MargSetu Replay</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #050914; color: #ccddff; font-family: 'Courier New', monospace; }
+
+#app { display: flex; flex-direction: column; height: 100vh; }
+#main { display: flex; flex: 1; min-height: 0; }
+#canvas-wrap { width: 70%; position: relative; }
+#canvas-wrap canvas { display: block; width: 100%; height: 100%; }
+#info-panel { width: 30%; background: #0a1628; overflow-y: auto; padding: 12px 14px; font-size: 11px; }
+
+/* DVR bar */
+#dvr { height: 60px; background: #0a1628; border-top: 1px solid #1a2a44; display: flex; align-items: center; gap: 12px; padding: 0 18px; flex-shrink: 0; }
+#dvr label { font-size: 11px; color: #6688aa; cursor: pointer; }
+#dvr input[type="file"] { display: none; }
+#dvr .file-btn { background: #1a2a44; color: #33ccff; border: 1px solid #33ccff; padding: 6px 14px; font-family: 'Courier New', monospace; font-size: 11px; cursor: pointer; border-radius: 3px; }
+#dvr .file-btn:hover { background: #33ccff; color: #050914; }
+#dvr input[type="range"] { flex: 1; accent-color: #33ccff; height: 6px; }
+#tick-label { color: #33ccff; font-size: 13px; min-width: 100px; text-align: center; }
+#play-btn { background: none; border: 1px solid #33ccff; color: #33ccff; padding: 6px 16px; font-family: 'Courier New', monospace; font-size: 12px; cursor: pointer; border-radius: 3px; }
+#play-btn:hover { background: #33ccff; color: #050914; }
+
+/* Info panel sections */
+.section-head { color: #33ccff; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin: 14px 0 6px 0; padding-bottom: 4px; border-bottom: 1px solid #1a2a44; }
+.section-head:first-child { margin-top: 0; }
+table { width: 100%; border-collapse: collapse; font-size: 10px; }
+th { text-align: left; color: #6688aa; padding: 4px 8px; font-weight: normal; text-transform: uppercase; font-size: 9px; letter-spacing: 0.5px; }
+td { padding: 4px 8px; }
+tr:nth-child(even) { background: #0d1f3c; }
+tr:nth-child(odd) { background: #0a1628; }
+tr.row-fail { background: #3a1010 !important; color: #ff6666; }
+tr.row-warn { background: #2a2400 !important; color: #ffdd66; }
+tr.row-done { color: #556677; }
+tr.row-overflow { background: #3a1010 !important; color: #ff6666; }
+.evt-line { padding: 2px 0; color: #8899bb; font-size: 10px; }
+.evt-line.evt-truth { color: #ff6666; }
+.evt-line.evt-report { color: #ffaa44; }
+.trans-line { padding: 2px 0; font-size: 10px; color: #88aacc; }
+.viol-line { padding: 2px 0; font-size: 10px; color: #ff4444; }
+.reroute-line { padding: 2px 0; font-size: 10px; color: #ffaa00; }
+#no-data { color: #445566; text-align: center; padding-top: 40%; font-size: 13px; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="main">
+    <div id="canvas-wrap"><canvas id="c"></canvas></div>
+    <div id="info-panel"><div id="no-data">Load a ledger.json to begin</div></div>
+  </div>
+  <div id="dvr">
+    <label class="file-btn" for="file-in">LOAD LEDGER</label>
+    <input type="file" id="file-in" accept=".json">
+    <input type="range" id="slider" min="0" max="30" value="0" step="1" disabled>
+    <span id="tick-label">-- / --</span>
+    <button id="play-btn" disabled>&#9654; PLAY</button>
+  </div>
+</div>
+
+<script>
+// ── Utilities ──────────────────────────────────────────────────────────────
+function edgeKey(a, b) { return [a, b].sort().join('|'); }
+function lerp(a, b, t) { return a + (b - a) * t; }
+
+// ── Renderer ───────────────────────────────────────────────────────────────
+class MargSetuRenderer {
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext('2d');
+    this.pulsePhase = 0;
+    this.ledger = null;
+    this.currentTick = 0;
+
+    // ── Background map image ──
+    this.bgReady = false;
+    this.bgCanvas = document.createElement('canvas');
+    this.bgImg = new Image();
+    this.bgImg.onload = () => {
+      // Render filtered version to offscreen canvas once
+      this.bgCanvas.width = this.bgImg.width;
+      this.bgCanvas.height = this.bgImg.height;
+      const bctx = this.bgCanvas.getContext('2d');
+      bctx.filter = 'invert(1) hue-rotate(180deg) brightness(0.3) saturate(2)';
+      bctx.drawImage(this.bgImg, 0, 0);
+      bctx.filter = 'none';
+      this.bgReady = true;
+      if (this.ledger) this.render(this.currentTick);
+    };
+    this.bgImg.src = 'muj_map.png';
+
+    // ── 17 Nodes (map-derived from 629x786 path map) ──
+    this.nodeData = {
+      "CRICKET":           { x: 0.493, y: 0.121, type: "sports" },
+      "BASKETBALL":        { x: 0.811, y: 0.070, type: "sports" },
+      "FOOTBALL":          { x: 0.620, y: 0.235, type: "sports" },
+      "LHC":               { x: 0.429, y: 0.331, type: "academic" },
+      "CIVIL_WS":          { x: 0.851, y: 0.312, type: "campus" },
+      "AB3":               { x: 0.310, y: 0.401, type: "academic" },
+      "AB2":               { x: 0.779, y: 0.401, type: "academic" },
+      "OLD_MESS":          { x: 0.533, y: 0.464, type: "campus" },
+      "KNOWLEDGE_CENTRE":  { x: 0.771, y: 0.496, type: "shelter" },
+      "AB1":               { x: 0.390, y: 0.553, type: "academic" },
+      "PARKING_1":         { x: 0.231, y: 0.579, type: "campus" },
+      "DOME":              { x: 0.612, y: 0.680, type: "shelter" },
+      "VIP_ENTRY":         { x: 0.763, y: 0.763, type: "campus" },
+      "PARKING_2":         { x: 0.453, y: 0.770, type: "campus" },
+      "GHS_HOSTEL":        { x: 0.087, y: 0.642, type: "shelter" },
+      "GARDEN":            { x: 0.326, y: 0.846, type: "campus" },
+      "FLOOD_POND":        { x: 0.533, y: 0.929, type: "water" }
+    };
+
+    // ── 23 Edges ──
+    this.edgeList = [
+      { source: "GHS_HOSTEL",       target: "PARKING_1",        baseType: "road" },
+      { source: "PARKING_1",        target: "AB1",              baseType: "road" },
+      { source: "PARKING_1",        target: "AB3",              baseType: "road" },
+      { source: "AB3",              target: "LHC",              baseType: "road" },
+      { source: "LHC",              target: "CRICKET",          baseType: "road" },
+      { source: "LHC",              target: "FOOTBALL",         baseType: "road" },
+      { source: "CRICKET",          target: "BASKETBALL",       baseType: "road" },
+      { source: "BASKETBALL",       target: "CIVIL_WS",         baseType: "road" },
+      { source: "CIVIL_WS",         target: "AB2",              baseType: "road" },
+      { source: "AB2",              target: "KNOWLEDGE_CENTRE", baseType: "road" },
+      { source: "KNOWLEDGE_CENTRE", target: "OLD_MESS",         baseType: "road" },
+      { source: "OLD_MESS",         target: "FOOTBALL",         baseType: "road" },
+      { source: "OLD_MESS",         target: "LHC",              baseType: "road" },
+      { source: "OLD_MESS",         target: "AB1",              baseType: "road" },
+      { source: "AB1",              target: "DOME",             baseType: "road" },
+      { source: "KNOWLEDGE_CENTRE", target: "DOME",             baseType: "road" },
+      { source: "DOME",             target: "VIP_ENTRY",        baseType: "road" },
+      { source: "PARKING_2",        target: "GARDEN",           baseType: "road" },
+      { source: "GARDEN",           target: "GHS_HOSTEL",       baseType: "road" },
+      { source: "PARKING_2",        target: "DOME",             baseType: "flooded" },
+      { source: "GHS_HOSTEL",       target: "FLOOD_POND",       baseType: "water" },
+      { source: "GARDEN",           target: "FLOOD_POND",       baseType: "water" },
+      { source: "PARKING_2",        target: "FLOOD_POND",       baseType: "water" }
+    ];
+
+    this.nodeColors = {
+      shelter:  { fill: '#ff3333', glow: '#ff0000' },
+      academic: { fill: '#33ccff', glow: '#00aaff' },
+      campus:   { fill: '#aaaaaa', glow: '#888888' },
+      sports:   { fill: '#ffaa00', glow: '#ff8800' },
+      water:    { fill: '#0055ff', glow: '#0033cc' }
+    };
+
+    this.edgeStyles = {
+      road:          { stroke: 'rgba(255,100,100,0.35)', dash: [],     width: 2 },
+      water:         { stroke: 'rgba(0,150,255,0.5)',    dash: [5,5],  width: 2 },
+      flooded:       { stroke: 'rgba(0,200,255,0.6)',    dash: [5,5],  width: 3 },
+      closed:        { stroke: 'rgba(255,50,50,0.9)',    dash: [8,4],  width: 3 },
+      belief_closed: { stroke: 'rgba(255,200,0,0.6)',    dash: [4,4],  width: 2 }
+    };
+  }
+
+  // ── Coordinate helpers ──
+  // Map coordinates use the full canvas area with small padding for labels
+  pad() { return 30; }
+  nx(xNorm) { return this.pad() + xNorm * (this.W - 2 * this.pad()); }
+  ny(yNorm) { return this.pad() + yNorm * (this.H - 2 * this.pad()); }
+  nodePos(name) {
+    const d = this.nodeData[name];
+    if (!d) { return null; }
+    return { x: this.nx(d.x), y: this.ny(d.y) };
+  }
+
+  // ── Resize ──
+  resize() {
+    const wrap = this.canvas.parentElement;
+    this.canvas.width = wrap.clientWidth * devicePixelRatio;
+    this.canvas.height = wrap.clientHeight * devicePixelRatio;
+    this.ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    this.W = wrap.clientWidth;
+    this.H = wrap.clientHeight;
+  }
+
+  // ── Draw: background map ──
+  drawBackground() {
+    if (!this.bgReady) return;
+    const ctx = this.ctx;
+    const imgW = this.bgCanvas.width;
+    const imgH = this.bgCanvas.height;
+    // Scale to fill canvas preserving aspect ratio
+    const scaleX = this.W / imgW;
+    const scaleY = this.H / imgH;
+    const scale = Math.max(scaleX, scaleY);
+    const dw = imgW * scale;
+    const dh = imgH * scale;
+    const dx = (this.W - dw) / 2;
+    const dy = (this.H - dh) / 2;
+    ctx.drawImage(this.bgCanvas, dx, dy, dw, dh);
+  }
+
+  // ── Derive edge status for this tick ──
+  edgeStatus(edge, tickEdges) {
+    if (edge.baseType === 'water') return 'water';
+    if (edge.baseType === 'flooded') return 'flooded';
+    const key = edgeKey(edge.source, edge.target);
+    const entry = tickEdges ? tickEdges[key] : null;
+    if (entry) {
+      if (entry.truth_closed) return 'closed';
+      if (entry.belief_closed) return 'belief_closed';
+    }
+    return 'road';
+  }
+
+  // ── Draw: grid ──
+  drawGrid() {
+    const ctx = this.ctx;
+    ctx.strokeStyle = 'rgba(255,255,255,0.03)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([]);
+    for (let i = 0; i <= 10; i++) {
+      const xp = (this.W * i) / 10;
+      const yp = (this.H * i) / 10;
+      ctx.beginPath(); ctx.moveTo(xp, 0); ctx.lineTo(xp, this.H); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0, yp); ctx.lineTo(this.W, yp); ctx.stroke();
+    }
+  }
+
+  // ── Draw: edges ──
+  drawEdges(tickEdges) {
+    const ctx = this.ctx;
+    for (const edge of this.edgeList) {
+      const p1 = this.nodePos(edge.source);
+      const p2 = this.nodePos(edge.target);
+      if (!p1 || !p2) continue;
+      const status = this.edgeStatus(edge, tickEdges);
+      const style = this.edgeStyles[status];
+
+      // Quadratic Bezier with offset control point
+      const mx = (p1.x + p2.x) / 2;
+      const my = (p1.y + p2.y) / 2;
+      const dx = p2.x - p1.x;
+      const dy = p2.y - p1.y;
+      const len = Math.sqrt(dx * dx + dy * dy);
+      const off = Math.min(len * 0.15, 25);
+      const cx = mx + (dy / len) * off;
+      const cy = my - (dx / len) * off;
+
+      ctx.save();
+      ctx.strokeStyle = style.stroke;
+      ctx.lineWidth = style.width;
+      ctx.setLineDash(style.dash);
+      ctx.beginPath();
+      ctx.moveTo(p1.x, p1.y);
+      ctx.quadraticCurveTo(cx, cy, p2.x, p2.y);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.restore();
+
+      // Closed X marker at midpoint
+      if (status === 'closed') {
+        ctx.save();
+        ctx.font = '14px Courier New';
+        ctx.fillStyle = 'rgba(255,50,50,0.9)';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('\u2715', mx, my);
+        ctx.restore();
+      }
+    }
+  }
+
+  // ── Draw: incident rings ──
+  drawIncidents(tickIncidents) {
+    if (!tickIncidents) return;
+    const ctx = this.ctx;
+    for (const [iid, inc] of Object.entries(tickIncidents)) {
+      const pos = this.nodePos(inc.node);
+      if (!pos) { console.warn('Unknown incident node:', inc.node); continue; }
+
+      if (inc.remaining > 0) {
+        // Pulsing ring
+        const r = 8 + 4 * Math.sin(this.pulsePhase);
+        ctx.save();
+        ctx.strokeStyle = 'rgba(255,200,0,0.6)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, r, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+
+        // Remaining count
+        ctx.save();
+        ctx.font = '11px Courier New';
+        ctx.fillStyle = '#ffcc00';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+        ctx.fillText('\u00d7' + inc.remaining, pos.x, pos.y - 14);
+        ctx.restore();
+      } else {
+        // Green checkmark
+        ctx.save();
+        ctx.font = '13px Courier New';
+        ctx.fillStyle = '#00dd44';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+        ctx.fillText('\u2713', pos.x, pos.y - 12);
+        ctx.restore();
+      }
+    }
+  }
+
+  // ── Draw: nodes ──
+  drawNodes() {
+    const ctx = this.ctx;
+    for (const [name, data] of Object.entries(this.nodeData)) {
+      const pos = this.nodePos(name);
+      const colors = this.nodeColors[data.type] || this.nodeColors.campus;
+
+      ctx.save();
+      ctx.shadowColor = colors.glow;
+      ctx.shadowBlur = 15;
+      ctx.fillStyle = colors.fill;
+      ctx.beginPath();
+      ctx.arc(pos.x, pos.y, 6, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      // Label
+      ctx.font = '9px Courier New';
+      ctx.fillStyle = 'rgba(200,220,255,0.55)';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      const label = name.replace(/_/g, ' ');
+      ctx.fillText(label, pos.x, pos.y + 9);
+      ctx.restore();
+    }
+  }
+
+  // ── Draw: agents ──
+  drawAgents(tickAgents) {
+    if (!tickAgents) return;
+    const ctx = this.ctx;
+    const agentOffsets = {};  // track offset per node to prevent overlap
+
+    for (const [aname, ag] of Object.entries(tickAgents)) {
+      let pos;
+      if (ag.status === 'MOVING' && ag.next_node && this.nodeData[ag.next_node] && this.nodeData[ag.node]) {
+        const p1 = this.nodePos(ag.node);
+        const p2 = this.nodePos(ag.next_node);
+        pos = { x: (p1.x + p2.x) / 2, y: (p1.y + p2.y) / 2 };
+      } else {
+        pos = this.nodePos(ag.node);
+      }
+      if (!pos) { console.warn('Unknown agent node:', ag.node); continue; }
+
+      // Offset agents on same node
+      const nk = ag.node + (ag.status === 'MOVING' ? '>' + ag.next_node : '');
+      agentOffsets[nk] = (agentOffsets[nk] || 0) + 1;
+      const offsetIdx = agentOffsets[nk] - 1;
+      const ox = (offsetIdx % 3 - 1) * 14;
+      const oy = -20 - Math.floor(offsetIdx / 3) * 18;
+
+      const ax = pos.x + ox;
+      const ay = pos.y + oy;
+
+      // Triangle colour
+      let fill = '#ffffff';
+      if (ag.status === 'FAILED') fill = '#444444';
+      else if (aname.startsWith('BOAT')) fill = '#00ffff';
+
+      // Draw triangle
+      const s = 5;
+      ctx.save();
+      ctx.fillStyle = fill;
+      ctx.beginPath();
+      ctx.moveTo(ax, ay - s);
+      ctx.lineTo(ax - s, ay + s);
+      ctx.lineTo(ax + s, ay + s);
+      ctx.closePath();
+      ctx.fill();
+
+      // Victims dot
+      if (ag.victims > 0) {
+        ctx.fillStyle = '#ffaa00';
+        ctx.beginPath();
+        ctx.arc(ax + s + 2, ay - s + 1, 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Label
+      ctx.font = '9px Courier New';
+      ctx.fillStyle = fill;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      ctx.fillText(aname, ax, ay + s + 2);
+      ctx.restore();
+    }
+  }
+
+  // ── Draw: shelter bars ──
+  drawShelterBars(tickShelters) {
+    if (!tickShelters) return;
+    const ctx = this.ctx;
+    for (const [sname, sh] of Object.entries(tickShelters)) {
+      const pos = this.nodePos(sname);
+      if (!pos) continue;
+      const bw = 40, bh = 6;
+      const bx = pos.x - bw / 2;
+      const by = pos.y + 14;
+      const max = sh.max || 1;
+
+      // Background
+      ctx.fillStyle = '#222';
+      ctx.fillRect(bx, by, bw, bh);
+
+      // Occupied (green)
+      const occW = (sh.occupied / max) * bw;
+      ctx.fillStyle = '#00cc44';
+      ctx.fillRect(bx, by, Math.min(occW, bw), bh);
+
+      // Reserved (orange)
+      const resW = (sh.reserved / max) * bw;
+      ctx.fillStyle = '#ffaa00';
+      ctx.fillRect(bx + occW, by, Math.min(resW, bw - occW), bh);
+
+      // DOME overflow: full red bar
+      if (sh.remaining <= 0) {
+        ctx.fillStyle = 'rgba(255,50,50,0.7)';
+        ctx.fillRect(bx, by, bw, bh);
+      }
+
+      // Label
+      ctx.save();
+      ctx.font = '9px Courier New';
+      ctx.fillStyle = '#778899';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      ctx.fillText(sh.occupied + '/' + max, pos.x, by + bh + 2);
+      ctx.restore();
+    }
+  }
+
+  // ── Draw: tick 15 callouts ──
+  drawCallouts(tick, tickAgents) {
+    if (tick !== 15) return;
+    const ctx = this.ctx;
+    const callouts = [];
+
+    // 1. AB1-DOME midpoint
+    const p_ab1 = this.nodePos('AB1');
+    const p_dome = this.nodePos('DOME');
+    if (p_ab1 && p_dome) {
+      callouts.push({ x: (p_ab1.x + p_dome.x) / 2 + 30, y: (p_ab1.y + p_dome.y) / 2 - 10, text: 'BRIDGE CLOSED' });
+    }
+
+    // 2. BOAT-1 position
+    const b1 = tickAgents ? tickAgents['BOAT-1'] : null;
+    const b1pos = b1 ? this.nodePos(b1.node) : this.nodePos('FLOOD_POND');
+    if (b1pos) {
+      callouts.push({ x: b1pos.x + 40, y: b1pos.y - 30, text: 'BOAT-1 FAILED' });
+    }
+
+    // 3. DOME overflow
+    if (p_dome) {
+      callouts.push({ x: p_dome.x + 50, y: p_dome.y + 10, text: 'DOME: OVERFLOW' });
+    }
+
+    for (const c of callouts) {
+      ctx.save();
+      ctx.font = '10px Courier New';
+      const tw = ctx.measureText(c.text).width;
+      const pad = 6;
+      ctx.fillStyle = 'rgba(0,0,0,0.75)';
+      ctx.strokeStyle = '#ff3333';
+      ctx.lineWidth = 1;
+      ctx.fillRect(c.x - pad, c.y - 12 - pad, tw + pad * 2, 16 + pad);
+      ctx.strokeRect(c.x - pad, c.y - 12 - pad, tw + pad * 2, 16 + pad);
+      ctx.fillStyle = '#ffffff';
+      ctx.textBaseline = 'middle';
+      ctx.textAlign = 'left';
+      ctx.fillText(c.text, c.x, c.y - 6);
+      ctx.restore();
+    }
+  }
+
+  // ── Full render ──
+  render(tick) {
+    if (!this.ledger) return;
+    this.currentTick = tick;
+    const td = this.ledger.ticks[tick];
+    if (!td) return;
+    const ctx = this.ctx;
+
+    // 1. Clear
+    ctx.clearRect(0, 0, this.W, this.H);
+
+    // 2. Background map
+    this.drawBackground();
+
+    // 3. Grid
+    this.drawGrid();
+
+    // 3. Edges
+    this.drawEdges(td.edges);
+
+    // 4. Incident rings
+    this.drawIncidents(td.incidents);
+
+    // 5. Nodes
+    this.drawNodes();
+
+    // 6. Agents
+    this.drawAgents(td.agents);
+
+    // 7. Shelter bars
+    this.drawShelterBars(td.shelters);
+
+    // 8. Tick 15 callouts
+    this.drawCallouts(tick, td.agents);
+  }
+}
+
+// ── Info Panel Builder ─────────────────────────────────────────────────────
+function buildInfoHTML(ledger, tick) {
+  const td = ledger.ticks[tick];
+  if (!td) return '';
+  const scenario = ledger.scenario || '?';
+  const mode = ledger.mode || '?';
+  let h = '';
+
+  // §1: Tick summary
+  h += '<div class="section-head">Tick Summary</div>';
+  h += '<div style="padding:2px 0;font-size:11px;">';
+  h += '<b>Tick ' + String(tick).padStart(2, '0') + '</b> / 30 &nbsp; | &nbsp; ' + scenario + ' &middot; ' + mode;
+  h += '</div>';
+  if (td.events && td.events.length) {
+    h += '<div style="margin-top:4px">';
+    for (const ev of td.events) {
+      const cls = ev.startsWith('TRUTH') ? 'evt-truth' : (ev.startsWith('REPORT') ? 'evt-report' : '');
+      h += '<div class="evt-line ' + cls + '">' + esc(ev) + '</div>';
+    }
+    h += '</div>';
+  }
+
+  // §2: Agents
+  h += '<div class="section-head">Agents</div>';
+  h += '<table><tr><th>Name</th><th>Node</th><th>Status</th><th>Vic</th><th>Commit</th></tr>';
+  if (td.agents) {
+    for (const [name, ag] of Object.entries(td.agents)) {
+      let cls = '';
+      if (ag.status === 'FAILED') cls = 'row-fail';
+      else if (ag.status === 'LOADING' || ag.status === 'UNLOADING') cls = 'row-warn';
+      h += '<tr class="' + cls + '"><td>' + name + '</td><td>' + (ag.node || '-') + '</td><td>' + ag.status +
+           '</td><td>' + ag.victims + '</td><td>' + (ag.commitment || '-') + '</td></tr>';
+    }
+  }
+  h += '</table>';
+
+  // §3: Incidents
+  h += '<div class="section-head">Incidents</div>';
+  h += '<table><tr><th>ID</th><th>Node</th><th>Rem</th><th>Clm</th><th>Del</th></tr>';
+  if (td.incidents) {
+    for (const [iid, inc] of Object.entries(td.incidents)) {
+      const cls = inc.remaining === 0 ? 'row-done' : '';
+      h += '<tr class="' + cls + '"><td>' + iid + '</td><td>' + inc.node + '</td><td>' + inc.remaining +
+           '</td><td>' + (inc.claimed || 0) + '</td><td>' + inc.delivered + '</td></tr>';
+    }
+  }
+  h += '</table>';
+
+  // §4: Shelters
+  h += '<div class="section-head">Shelters</div>';
+  h += '<table><tr><th>Name</th><th>Occ</th><th>Res</th><th>Rem</th><th>Max</th></tr>';
+  if (td.shelters) {
+    for (const [sname, sh] of Object.entries(td.shelters)) {
+      const cls = sh.remaining <= 0 ? 'row-overflow' : '';
+      h += '<tr class="' + cls + '"><td>' + sname + '</td><td>' + sh.occupied + '</td><td>' + sh.reserved +
+           '</td><td>' + sh.remaining + '</td><td>' + sh.max + '</td></tr>';
+    }
+  }
+  h += '</table>';
+
+  // §5: Transitions / violations / reroutes
+  h += '<div class="section-head">Transitions &amp; Violations</div>';
+  if (td.transitions && td.transitions.length) {
+    for (const tr of td.transitions) {
+      h += '<div class="trans-line">' + (tr.commitment || '?') + ': ' + (tr.from || '?') +
+           ' &rarr; ' + (tr.to || '?') + ' &mdash; ' + esc(tr.reason || '') + '</div>';
+    }
+  }
+  if (td.violations && td.violations.length) {
+    for (const v of td.violations) {
+      h += '<div class="viol-line">[' + (v.type || '').toUpperCase() + '] ' + (v.agent || '') +
+           ' on ' + (v.edge || '') + ': ' + esc(v.reason || '') + '</div>';
+    }
+  }
+  // Reroutes for this tick
+  if (ledger.reroute_explanations) {
+    for (const re of ledger.reroute_explanations) {
+      if (re.tick === tick) {
+        h += '<div class="reroute-line">REROUTE ' + (re.commitment || '') + ': ' + esc(re.reason || '') + '</div>';
+      }
+    }
+  }
+
+  if ((!td.transitions || !td.transitions.length) && (!td.violations || !td.violations.length)) {
+    let reroutes = (ledger.reroute_explanations || []).filter(r => r.tick === tick);
+    if (!reroutes.length) h += '<div style="color:#445566;font-size:10px;padding:4px 0">None</div>';
+  }
+
+  return h;
+}
+
+function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// ── App init ───────────────────────────────────────────────────────────────
+(function() {
+  const canvas = document.getElementById('c');
+  const slider = document.getElementById('slider');
+  const tickLabel = document.getElementById('tick-label');
+  const playBtn = document.getElementById('play-btn');
+  const fileIn = document.getElementById('file-in');
+  const infoPanel = document.getElementById('info-panel');
+
+  const R = new MargSetuRenderer(canvas);
+  let playing = false;
+  let playInterval = null;
+  let animFrame = null;
+
+  function resize() {
+    R.resize();
+    R.render(R.currentTick);
+  }
+  window.addEventListener('resize', resize);
+
+  function updateTick(t) {
+    R.currentTick = t;
+    slider.value = t;
+    tickLabel.textContent = 'Tick ' + String(t).padStart(2, '0') + ' / 30';
+    R.render(t);
+    infoPanel.innerHTML = buildInfoHTML(R.ledger, t);
+  }
+
+  // Pulse animation loop
+  function animLoop() {
+    R.pulsePhase += 0.07;
+    if (R.ledger) R.render(R.currentTick);
+    animFrame = requestAnimationFrame(animLoop);
+  }
+
+  // File load
+  fileIn.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      try {
+        const data = JSON.parse(ev.target.result);
+        if (!data.ticks || !Array.isArray(data.ticks) || data.ticks.length < 1) {
+          alert('Invalid ledger.json: missing ticks array');
+          return;
+        }
+        if (!data.scenario || !data.mode) {
+          alert('Invalid ledger.json: missing scenario or mode keys');
+          return;
+        }
+        R.ledger = data;
+        slider.max = data.ticks.length - 1;
+        slider.disabled = false;
+        playBtn.disabled = false;
+        resize();
+        updateTick(0);
+        // Start animation loop for pulses
+        if (animFrame) cancelAnimationFrame(animFrame);
+        animLoop();
+      } catch (err) {
+        alert('Failed to parse JSON: ' + err.message);
+      }
+    };
+    reader.readAsText(file);
+  });
+
+  // Slider
+  slider.addEventListener('input', function() {
+    updateTick(parseInt(this.value));
+  });
+
+  // Play / pause
+  playBtn.addEventListener('click', function() {
+    if (playing) {
+      clearInterval(playInterval);
+      playing = false;
+      playBtn.innerHTML = '&#9654; PLAY';
+    } else {
+      if (R.currentTick >= parseInt(slider.max)) {
+        updateTick(0);
+      }
+      playing = true;
+      playBtn.innerHTML = '&#9646;&#9646; PAUSE';
+      playInterval = setInterval(function() {
+        let next = R.currentTick + 1;
+        if (next > parseInt(slider.max)) {
+          clearInterval(playInterval);
+          playing = false;
+          playBtn.innerHTML = '&#9654; PLAY';
+          return;
+        }
+        updateTick(next);
+      }, 600);
+    }
+  });
+
+  // Initial resize
+  resize();
+})();
+</script>
+</body>
+</html>

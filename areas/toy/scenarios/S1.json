@@ -1,0 +1,86 @@
+{
+  "name": "S1",
+  "agents": [
+    {
+      "name": "LAND-1",
+      "kind": "land",
+      "capacity": 10,
+      "speed": 1,
+      "start_node": "N1"
+    },
+    {
+      "name": "BOAT-1",
+      "kind": "boat",
+      "capacity": 8,
+      "speed": 2,
+      "start_node": "WATER_BASIN"
+    }
+  ],
+  "incidents": [
+    {
+      "id": "I1",
+      "node": "N3",
+      "victims": 6,
+      "urgency": 3,
+      "zone": "Beta"
+    },
+    {
+      "id": "I2",
+      "node": "N5",
+      "victims": 4,
+      "urgency": 1,
+      "zone": "Gamma"
+    }
+  ],
+  "overlays": {},
+  "events": [
+    {
+      "tick": 5,
+      "kind": "REPORT",
+      "edge": "N1|N2",
+      "source": "VOLUNTEER",
+      "state": "BLOCKED",
+      "conf0": 0.4
+    },
+    {
+      "tick": 7,
+      "kind": "REPORT",
+      "edge": "N1|N2",
+      "source": "DRONE",
+      "state": "CLEAR",
+      "conf0": 0.9
+    },
+    {
+      "tick": 15,
+      "kind": "TRUTH_EDGE_CLOSE",
+      "edge": "N1|N3"
+    },
+    {
+      "tick": 15,
+      "kind": "TRUTH_AGENT_FAIL",
+      "agent_name": "BOAT-1"
+    },
+    {
+      "tick": 15,
+      "kind": "TRUTH_SHELTER_SET",
+      "shelter_name": "N1",
+      "shelter_field": "occupied",
+      "shelter_value": 50
+    },
+    {
+      "tick": 15,
+      "kind": "REPORT",
+      "source": "COMMAND",
+      "message": "BOAT-1 failed",
+      "conf0": 1.0
+    },
+    {
+      "tick": 17,
+      "kind": "REPORT",
+      "edge": "N1|N3",
+      "source": "DRONE",
+      "state": "BLOCKED",
+      "conf0": 0.9
+    }
+  ]
+}

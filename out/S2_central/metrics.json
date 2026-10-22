@@ -1,0 +1,23 @@
+{
+  "scenario": "S2",
+  "mode": "central",
+  "time_to_service": 11.75,
+  "tts_reached": 4,
+  "tts_unreached": 1,
+  "unmet_requests": 4,
+  "resource_idle_time": 47,
+  "route_violations": 0,
+  "recovery_ticks": 2.0,
+  "recovery_uncorrected": 0,
+  "jains_index": 0.9783,
+  "zone_ratios": {
+    "Campus": 1.0,
+    "Sports": 0.7143,
+    "Admin": 1.0
+  },
+  "requested_total": 36,
+  "delivered_total": 32,
+  "unmet_total": 4,
+  "reroute_count": 3,
+  "shelter_rejects": 0
+}

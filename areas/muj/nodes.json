@@ -1,0 +1,124 @@
+{
+  "AB1": {
+    "zone": "Academic",
+    "pos": [
+      255,
+      390
+    ]
+  },
+  "AB2": {
+    "zone": "Academic",
+    "pos": [
+      370,
+      320
+    ]
+  },
+  "AB3": {
+    "zone": "Academic",
+    "pos": [
+      220,
+      280
+    ]
+  },
+  "LHC": {
+    "zone": "Academic",
+    "pos": [
+      270,
+      240
+    ]
+  },
+  "KNOWLEDGE_CENTRE": {
+    "zone": "Academic",
+    "pos": [
+      390,
+      385
+    ],
+    "max_capacity": 150
+  },
+  "DOME": {
+    "zone": "Admin",
+    "pos": [
+      320,
+      460
+    ],
+    "max_capacity": 300
+  },
+  "VIP_ENTRY": {
+    "zone": "Admin",
+    "pos": [
+      355,
+      545
+    ]
+  },
+  "OLD_MESS": {
+    "zone": "Campus",
+    "pos": [
+      315,
+      355
+    ]
+  },
+  "PARKING_1": {
+    "zone": "Campus",
+    "pos": [
+      175,
+      430
+    ]
+  },
+  "PARKING_2": {
+    "zone": "Campus",
+    "pos": [
+      250,
+      500
+    ]
+  },
+  "CIVIL_WS": {
+    "zone": "Campus",
+    "pos": [
+      460,
+      240
+    ]
+  },
+  "GARDEN": {
+    "zone": "Campus",
+    "pos": [
+      290,
+      565
+    ]
+  },
+  "FOOTBALL": {
+    "zone": "Sports",
+    "pos": [
+      340,
+      195
+    ]
+  },
+  "CRICKET": {
+    "zone": "Sports",
+    "pos": [
+      295,
+      145
+    ]
+  },
+  "BASKETBALL": {
+    "zone": "Sports",
+    "pos": [
+      430,
+      135
+    ]
+  },
+  "GHS_HOSTEL": {
+    "zone": "Hostels",
+    "pos": [
+      165,
+      375
+    ],
+    "max_capacity": 120
+  },
+  "FLOOD_POND": {
+    "zone": "Water",
+    "pos": [
+      195,
+      560
+    ]
+  }
+}

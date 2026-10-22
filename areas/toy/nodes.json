@@ -1,0 +1,45 @@
+{
+  "N1": {
+    "zone": "Alpha",
+    "pos": [
+      100,
+      100
+    ],
+    "max_capacity": 50
+  },
+  "N2": {
+    "zone": "Alpha",
+    "pos": [
+      200,
+      100
+    ]
+  },
+  "N3": {
+    "zone": "Beta",
+    "pos": [
+      100,
+      200
+    ]
+  },
+  "N4": {
+    "zone": "Beta",
+    "pos": [
+      200,
+      200
+    ]
+  },
+  "N5": {
+    "zone": "Gamma",
+    "pos": [
+      300,
+      150
+    ]
+  },
+  "WATER_BASIN": {
+    "zone": "Water",
+    "pos": [
+      150,
+      150
+    ]
+  }
+}
