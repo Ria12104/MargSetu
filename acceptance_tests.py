@@ -227,11 +227,11 @@ if r.returncode == 0 and "time_to_service" in r.stdout:
 else:
     fail("22. compare.py", r.stderr[:200])
 
-# 23: replay.html exists
-if Path("replay.html").exists():
-    ok("23. replay.html exists")
+# 23: index.html / replay.html exists
+if Path("index.html").exists() or Path("replay.html").exists():
+    ok("23. index.html / replay.html exists")
 else:
-    fail("23. replay.html exists")
+    fail("23. index.html exists")
 
 # 19: invariant — already enforced inside sim (would crash if violated)
 ok("19. invariant holds (sim would have crashed otherwise)")

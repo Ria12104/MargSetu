@@ -66,7 +66,7 @@ python acceptance_tests.py
 ```
 
 ### 5. Interactive DVR Replay
-Open `replay.html` in any web browser and load any generated `ledger.json` (e.g., from `out/S1_decentral/ledger.json`).
+Open `index.html` (or `replay.html`) in any web browser and switch between runs via the dropdown or load any custom `ledger.json`.
 
 ---
 
@@ -99,7 +99,8 @@ Open `replay.html` in any web browser and load any generated `ledger.json` (e.g.
 ├── metrics.py          # Metric calculations & Jain's fairness index
 ├── compare.py          # 4-run side-by-side terminal comparison table
 ├── acceptance_tests.py # Full 39-point acceptance test suite
-├── replay.html         # Canvas-based DVR replay interface
+├── index.html          # Canvas-based DVR replay interface (formerly replay.html)
+├── replay.html         # Backwards-compatible redirect to index.html
 ├── out/                # Simulation run outputs (ledger.json & metrics.json per run)
 └── PROJECT_CONTEXT.md  # Detailed specification & problem context
 ```
